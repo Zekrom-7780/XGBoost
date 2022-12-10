@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Input Data</h1>
+<p><h3> (Only .csv files allowed)</h3></p>
+
+    <div class=''>
+        <form class="action" method="post" enctype="multipart/form-data">
+            <input type="file" name="csvfile" value="">
+            <input type="submit" submit name='form1' name="value" value="Submit">
+        </form>
+    </div>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h1>Provide the parameters for XGBoost</h1>
+  <h2>Default Parameters list</h2>
+  <p>(All the parameters provided are for [booster=gbtree] method.</p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Default Parameters list</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item">booster [default= gbtree]</li>
+          <li class="list-group-item">verbosity [default=1]</li>
+          <li class="list-group-item">validate_parameters [default to false, except for Python, R and CLI interface]</li>
+          <li class="list-group-item">nthread [default to maximum number of threads available if not set]</li>
+          <li class="list-group-item">eta [default=0.3, alias: learning_rate]   (eta range=[0,1])</li>
+          <li class="list-group-item"> gamma [default=0, alias: min_split_loss]  (gamma range=[0,infinity])</li>
+          <li class="list-group-item">max_depth [default=6]  (range: [0,∞])</li>
+          <li class="list-group-item">min_child_weight [default=1]  (range=[0,infinity])</li>
+          <li class="list-group-item">max_delta_step [default=0]</li>
+          <li class="list-group-item">subsample [default=1]   (range=[0,1])</li>
+          <li class="list-group-item">sampling_method [default= uniform]</li>
+          <li class="list-group-item">colsample_bytree, colsample_bylevel, colsample_bynode [default=1]</li>
+          <li class="list-group-item">lambda [default=1, alias: reg_lambda]</li>
+          <li class="list-group-item">alpha [default=0, alias: reg_alpha]</li>
+          <li class="list-group-item">updater [default= grow_colmaker,prune]</li>
+          <li class="list-group-item">refresh_leaf [default=1]</li>
+          <li class="list-group-item">process_type [default= default]</li>
+          <li class="list-group-item">grow_policy [default= depthwise]</li>
+          <li class="list-group-item">max_delta_step [default=0]</li>
+          <li class="list-group-item">max_leaves [default=0]</li>
+          <li class="list-group-item">max_bin, [default=256]</li>
+          <li class="list-group-item">predictor, [default=``auto``]</li>
+        </ul>
+        <div class="panel-footer">Footer</div>
+      </div>
+    </div>
+  </div>
+
+  <form action="" method="post">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Lambda:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="Lambda" placeholder="Enter the value of lambda (default=1)">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">test_size:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="test_size" placeholder="Enter the value of the test_size (in decmals)">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">n_estimators:</label>
+      <div class="col-sm-10">
+        <input type="number"  class="form-control" id="pwd" name="n_estimators" placeholder="Enter the value of number of estimators(100 if the size of your data is high, 1000 is if it is medium-low)">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Max_depth:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="pwd" name="Max_depth" placeholder="Enter the value of maximum depth of the tree (range: [0,∞], but better if you enter (3-15))">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Learning_Rate:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="Learning_rate" placeholder="Enter the value of the learning rate (range: [0,1]">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">subsample:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="subsample" placeholder="Enter the value of the subsample (range=[0.5,1])">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">colsample_bytree:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="colsample_bytree" placeholder="Enter the value of the colsample_bytree (range=[0.5,1])">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">alpha:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pwd" name="alpha" placeholder="Enter the value of alpha (default=0)">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">min_child_weight:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="pwd" name="min_child_weight" placeholder="Enter the value of the min_child_weight(range=[0,10]">
+      </div>
+    </div>
+    <input type="submit" submit name='form2' name="value" value="Submit">
+  </form>
+</div>
+    
+</body>
+</html>
+
+{% endblock content %}
